@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Грузы на нити через блок</title>
+    <link rel="stylesheet" href="style123.css">
+</head>
+<body>
+    <h1>Два груза на нити, перекинутой через блок</h1>
+
+    <div class="row">
+
+        <!-- левая колонка: задача и ссылки -->
+        <div class="col">
+
+            <div class="box">
+                <h2>Задача</h2>
+                <p>Два одинаковых груза массой m = 0,5 кг каждый подвешены на концах
+                невесомой и нерастяжимой нити, перекинутой через невесомый блок с
+                неподвижной осью. На один из грузов кладут перегрузок массой
+                m<sub>0</sub> = 0,1 кг, после чего система приходит в движение.</p>
+                <p>Найдите модуль силы F, действующей на ось блока во время движения
+                грузов, а также ускорение a и время t, за которое груз с перегрузком
+                опустится на высоту h = 1 м. Трением пренебречь. Какие законы Вы
+                используете для описания движения системы? Обоснуйте их применение.</p>
+            </div>
+
+            <div class="box">
+                <h2>Дополнительные страницы</h2>
+                <p class="links">
+                    <a href="formula123.html">
+                        <svg width="120" height="80">
+                            <rect x="2" y="2" width="116" height="76" fill="white" stroke="#8f2a91" stroke-width="2"/>
+                            <text x="60" y="40" font-size="24" text-anchor="middle" fill="#8f2a91">F = 2T</text>
+                            <text x="60" y="65" font-size="13" text-anchor="middle" fill="#8f2a91">Вывод формулы</text>
+                        </svg>
+                    </a>
+                    <a href="calc123.html">
+                        <svg width="120" height="80">
+                            <rect x="2" y="2" width="116" height="76" fill="white" stroke="#8f2a91" stroke-width="2"/>
+                            <text x="60" y="40" font-size="24" text-anchor="middle" fill="#8f2a91">1+2=?</text>
+                            <text x="60" y="65" font-size="13" text-anchor="middle" fill="#8f2a91">Калькулятор</text>
+                        </svg>
+                    </a>
+                    <a href="graphs123.html">
+                        <svg width="120" height="80">
+                            <rect x="2" y="2" width="116" height="76" fill="white" stroke="#8f2a91" stroke-width="2"/>
+                            <polyline points="15,50 40,38 65,30 90,20 105,12" fill="none" stroke="#8f2a91" stroke-width="2"/>
+                            <text x="60" y="70" font-size="13" text-anchor="middle" fill="#8f2a91">Графики</text>
+                        </svg>
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- правая часть: чертеж -->
+        <div class="box">
+            <h2>Чертёж</h2>
+            <p id="info">Наведи мышь на груз, блок или нить.</p>
+            <svg width="400" height="280" id="drawing">
+                <!-- потолок -->
+                <line x1="100" y1="10" x2="300" y2="10" stroke="black" stroke-width="4"/>
+                <line x1="200" y1="10" x2="200" y2="60" stroke="black" stroke-width="2"/>
+
+                <!-- нить (концы потом двигает JS) -->
+                <line id="ropeL" x1="170" y1="60" x2="170" y2="150" stroke="black" stroke-width="2">
+                    <title>Нить: невесомая и нерастяжимая</title>
+                </line>
+                <line id="ropeR" x1="230" y1="60" x2="230" y2="150" stroke="black" stroke-width="2">
+                    <title>Нить: невесомая и нерастяжимая</title>
+                </line>
+
+                <!-- блок -->
+                <circle cx="200" cy="60" r="30" fill="lightgray" stroke="black" stroke-width="2">
+                    <title>Невесомый блок с неподвижной осью. На ось действует сила F = 2T</title>
+                </circle>
+                <circle cx="200" cy="60" r="4" fill="black"/>
+
+                <!-- левый груз с перегрузком -->
+                <g id="left">
+                    <rect x="145" y="150" width="50" height="50" fill="steelblue" stroke="black">
+                        <title>Груз массой m</title>
+                    </rect>
+                    <rect x="155" y="130" width="30" height="20" fill="orange" stroke="black">
+                        <title>Перегрузок массой m0</title>
+                    </rect>
+                    <text x="157" y="180" fill="white" font-size="14">m</text>
+                    <text x="160" y="145" font-size="12">m0</text>
+                </g>
+
+                <!-- правый груз -->
+                <g id="right">
+                    <rect x="205" y="150" width="50" height="50" fill="steelblue" stroke="black">
+                        <title>Груз массой m</title>
+                    </rect>
+                    <text x="225" y="180" fill="white" font-size="14">m</text>
+                </g>
+            </svg>
+
+            <p class="params">
+                m, кг: <input type="number" id="m" value="0.5" step="any">
+                m0, кг: <input type="number" id="m0" value="0.1" step="any">
+                h, м: <input type="number" id="h" value="1" step="any">
+            </p>
+
+            <p>
+                <button onclick="start()">Запустить</button>
+                <button onclick="reset()">Сбросить</button>
+            </p>
+
+            <p id="out"></p>
+        </div>
+
+    </div>
+
+    <script src="drawing123.js"></script>
+</body>
+</html>
